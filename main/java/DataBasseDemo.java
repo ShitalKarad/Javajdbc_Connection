@@ -12,11 +12,14 @@ public class DataBasseDemo {
 		String userName = "root";
 		String password = "Karad@123";
 		String query ="select * from employee_details";
+		String query2 = "update employee_details set first_name = 'Vivek' WHERE Emp_id = 102";
 				
 		try {
 				Connection connection = DriverManager.getConnection(jdbcUrl,userName,password);
 				java.sql.Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery(query);
+				java.sql.Statement statement1 = connection.createStatement();
+				statement1.execute(query2);
 						
 				while (resultSet.next()){
 				System.out.println("Employee ID : " +resultSet.getInt("Emp_id"));
